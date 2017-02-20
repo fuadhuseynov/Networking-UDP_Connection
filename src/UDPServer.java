@@ -6,24 +6,24 @@ import java.net.*;
  */
 public class UDPServer {
 
-    InetAddress clientIPAddress;    //Saves connected client's IP address
-    int clientPort;     //Saves connected client's port number
-    String receivedSentence;    //Message received from the client
-    String sendSentence;        //Message to be sent to the client by server
+    private InetAddress clientIPAddress;    //Saves connected client's IP address
+    private int clientPort;     //Saves connected client's port number
+    private String receivedSentence;    //Message received from the client
+    private String sendSentence;        //Message to be sent to the client by server
 
-    byte[] receivedData;   //bytes from client
-    byte[] sendData;       //bytes from server
+    private byte[] receivedData;   //bytes from client
+    private byte[] sendData;       //bytes from server
 
     //Constructor
     public UDPServer(int serverPortNumber) {
         //Initialize
-        clientIPAddress = null;
-        clientPort = 0;
-        receivedSentence = "";
-        sendSentence = "";
+        this.clientIPAddress = null;
+        this.clientPort = 0;
+        this.receivedSentence = "";
+        this.sendSentence = "";
 
-        receivedData = new byte[1024];
-        sendData = new byte[1024];
+        this.receivedData = new byte[1024];
+        this.sendData = new byte[1024];
 
         startListening(serverPortNumber);
     }
