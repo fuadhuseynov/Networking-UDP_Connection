@@ -6,22 +6,22 @@ import java.net.*;
  */
 public class UDPClient {
 
-    InetAddress serverIPAddress;    //IP address of the server to connect
-    int serverPortNumber;       //port number of the server to connect
-    String userMessage;     //message typed by user to send to server
-    String messageFromServer;   //message received from server
+    private InetAddress serverIPAddress;    //IP address of the server to connect
+    private int serverPortNumber;       //port number of the server to connect
+    private String userMessage;     //message typed by user to send to server
+    private String messageFromServer;   //message received from server
 
-    byte[] sendData;
-    byte[] receiveData;
+    private byte[] sendData;
+    private byte[] receiveData;
 
     //Constructor
     public UDPClient(String hostname, int portNumber) {
-        sendData = new byte[1024];
-        receiveData = new byte[1024];
+        this.sendData = new byte[1024];
+        this.receiveData = new byte[1024];
 
-        serverPortNumber = portNumber;
+        this.serverPortNumber = portNumber;
         try {
-            serverIPAddress = InetAddress.getByName(hostname);
+            this.serverIPAddress = InetAddress.getByName(hostname);
         } catch (UnknownHostException e) {
             System.out.println("Unknown Host Exception: " + e.getMessage());
         }
